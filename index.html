@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home Page - Welcome</title>
+  <link rel="stylesheet" type="text/css" href="Home/style.css" />
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0eVBuihxfikYDuwQht7GwH57UVUz5u8H"></script>
+  <script type="text/javascript"
+    src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+  <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+
+</head>
+
+<body>
+  <div class="title">
+    Welcome To Our Lab
+  </div>
+  <div class="guide">
+    <div class="content" style="padding-left: 0%;margin-left: 0%;">
+      <a href="#About us" style="color:rgb(255, 215, 215)">About Us</a><br />
+      <a href="#The Essay" style="color:rgb(253, 190, 190)">The Essay</a><br />
+      <a href="#Map Demo" style="color:rgb(248, 159, 159)">Map Demo</a><br />
+    </div>
+    <div class="headline">
+      <h2>GUIDE</h2>
+    </div>
+  </div>
+  <div class="introduction">
+    <a name="About us"></a> <!-- 实现跳转 -->
+    <div class="paper">
+      <h2>XXXXX Lab of ZheJiang University</h2>
+      <p>land all the introductions of the lab here</p>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+  </div>
+  <div class="essay">
+    <div class="tag">
+      <a name="The Essay"></a> <!-- 实现跳转 -->
+      <p style="font-size: x-large;">Previous Essay</p>
+    </div>
+    <h2>
+      Solving Optimization Problems through Fully Convolutional Networks: an
+      Application to the Travelling Salesman Problem
+    </h2>
+    <br />
+    <h3>
+      Author:
+      <a href="https://arxiv.org/search/cs?searchtype=author&query=Ling%2C+Z">
+        Zhengxuan Ling </a>,
+      <a href="https://arxiv.org/search/cs?searchtype=author&query=Tao%2C+X">
+        Xinyu Tao </a>,
+      <a href="https://arxiv.org/search/cs?searchtype=author&query=Zhang%2C+Y">
+        Yu Zhang </a>,
+      <a href="https://arxiv.org/search/cs?searchtype=author&query=Chen%2C+X">
+        Xi Chen </a>
+    </h3>
+    <br />
+    <p style="margin:30px;font-size: medium; text-align: left; text-indent: 25px;">
+      In the new wave of artificial intelligence, deep learning is impacting
+      various industries. As a closely related area, optimization algorithms
+      greatly contribute to the development of deep learning. But the reverse
+      applications are still insufficient. Is there any efficient way to solve
+      certain optimization problem through deep learning? The key is to
+      convert the optimization to a representation suitable for deep learning.
+      In this paper, a traveling salesman problem (TSP) is studied.
+      Considering that deep learning is good at image processing, an image
+      representation method is proposed to transfer a TSP to an image. Based
+      on samples of a 10 city TSP, a fully convolutional network (FCN) is used
+      to learn the mapping from a feasible region to an optimal solution. The
+      training process is analyzed and interpreted through stages. A
+      visualization method is presented to show how a FCN can understand the
+      training task of a TSP. Once the training is completed, no significant
+      effort is required to solve a new TSP and the prediction is obtained on
+      the scale of milliseconds. The results show good performance in finding
+      the global optimal solution. Moreover, the developed FCN model has been
+      demonstrated on TSP's with different city numbers, proving excellent
+      generalization performance.
+    </p>
+    <br />
+    <a target="_blank" href="https://arxiv.org/abs/1910.12243?context=cs.CV">Click Here To Learn More</a>
+  </div>
+  <div class="demo">
+    <div class="tag">
+      <p style="font-size:x-large;">Deep Learning Process</p>
+    </div>
+    <button title="暂停/播放所有动画" class="videobutton" onclick="playpauseVid()" type="button">
+      Play/Pause
+    </button>
+    <button title="从头播放所有动画" class="videobutton" onclick="StartFromHead()" type="button">
+      Start Again
+    </button>
+    <br /><br>
+    <div style="margin-bottom: 16px">
+      <video id="video1" style="width: 48%" controls loop autoplay>
+        <source src="Home\supplementary\1.mp4" type="video/mp4" />
+      </video>
+      <video id="video3" style="width: 48%; margin: auto" controls loop autoplay>
+        <source src="Home\supplementary\3.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div style="margin-bottom: 16px;">
+      <video id="video2" style="width: 60%" controls loop autoplay>
+        <source src="Home\supplementary\2.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div style="margin-bottom: 16px">
+      <video id="video4" style="width: 48%" controls loop autoplay>
+        <source src="Home\supplementary\4.mp4" type="video/mp4" />
+      </video>
+      <video id="video5" style="width: 48%" controls loop autoplay>
+        <source src="Home\supplementary\5.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <!-- <div class="marks"> 
+      <div>↑</div>
+      <div>↑</div>
+      <div>↑</div>
+    </div> -->
+
+
+    <p>
+      为了更加直观地展示训练过程，
+      我们将神经网络学习过程中定时输出的图片制作成视频供大家参考。
+    </p>
+    <p>
+      根据学习的不同过程，在进度条上做出相应标记，可供大家参考。
+    </p>
+    <!-- <p>
+      想要观赏其他案例？<a href="#">Click Here</a> For More Details！
+    </p> -->
+
+    <script>
+      var myVideo1 = document.getElementById("video1");
+      var myVideo2 = document.getElementById("video2");
+      var myVideo3 = document.getElementById("video3");
+      var myVideo4 = document.getElementById("video4");
+      var myVideo5 = document.getElementById("video5");
+      function playpauseVid() {
+        if (myVideo1.paused && myVideo2.paused && myVideo3.paused && myVideo4.paused && myVideo5.paused) {
+          myVideo1.play();
+          myVideo2.play();
+          myVideo3.play();
+          myVideo4.play();
+          myVideo5.play();
+        }
+        else {
+          myVideo1.pause();
+          myVideo2.pause();
+          myVideo3.pause();
+          myVideo4.pause();
+          myVideo5.pause();
+        }
+      }
+      function StartFromHead() {
+        myVideo1.currentTime = 0;
+        myVideo2.currentTime = 0;
+        myVideo3.currentTime = 0;
+        myVideo4.currentTime = 0;
+        myVideo5.currentTime = 0;
+        myVideo1.play();
+        myVideo2.play();
+        myVideo3.play();
+        myVideo4.play();
+        myVideo5.play();
+      }
+    </script>
+  </div>
+
+  <div class="interaction">
+    <div class="tag">
+      <p style="font-size: x-large;">Try This</p>
+    </div>
+    <a name="Map Demo"></a> <!-- 实现跳转 -->
+    <div>
+      <p
+        style="line-height: 2rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+        <h1>亲自动手试试我们的最优路径生成器吧！</h1>
+        <br>
+        <a style="font-size: larger;color: rgb(65, 121, 206);">
+          使用说明：
+        </a>
+        点击地图右上方“画点”以选择途径地，
+        接下来请在地图上选择3~12个地点作为输入，<br>
+        完成后点击"提交"按钮就可以显示闭环最短路径。
+      </p>
+      <br><br>
+    </div>
+    <div id="allmap"></div>
+    <br><br>
+    <div id="result">
+      <input type="button" onclick="add_control();" value="显示比例尺" />
+      <input type="button" onclick="delete_control();" value="隐藏比例尺" />
+      <!-- <input type="button" value="获取已选择地点的个数" onclick="number(overlays.length)" /> -->
+      <input type="button" value="清除一个地点" onclick="clearPreviousOne()" title="点击去除最后选择的地点" />
+      <input type="button" value="清除所有地点" onclick="clearAll()" />
+      <input type="button" value="清除所有覆盖物" onclick="remove_overlay()" />
+      <input type="button" value="提交" id="btn" onclick="number(overlays.length)" disabled="disabled">
+      <br>
+      <p>该地点的经纬度坐标：<textarea id="location" cols="25" rows="1" readonly="readonly" style="resize: none;"></textarea></p>
+      <p>当前已选地点数量：<textarea id="number" cols="35" rows="1" readonly="readonly" style="resize: none;"></textarea></p>
+      <br><br><br><br><br>
+      <p style="flood-color: #929292;font-size: xx-small;padding-bottom: 0px;">
+        感谢百度地图开放平台的技术支持！
+      </p>
+    </div>
+    <script type="text/javascript">
+      // 百度地图API功能
+      var map = new BMap.Map("allmap"); //显示地图
+      map.centerAndZoom(new BMap.Point(116.404, 39.915), 11); //设置初始地图中心点
+      map.addEventListener("click", function (e) {
+        addLocation(e.point.lng, e.point.lat, overlays.length);
+      });
+      // 获取经纬度坐标和已选点数，并调整提交按钮的属性
+      function addLocation(lng, lat, num) {
+        if (lng == 181 && lat == 91)
+          document.getElementById("location").innerHTML = null;
+        else
+          document.getElementById("location").innerHTML = lng + " , " + lat;
+        if (num < 3) {
+          var b = 3 - num;
+          document.getElementById("btn").disabled = true;
+          document.getElementById("number").innerHTML = num + "个，至少再选" + b + "个才能生成路线";
+        }
+        else if (num <= 12) {
+          document.getElementById("btn").disabled = false;
+          document.getElementById("number").innerHTML = num + "个，您可以点击提交按钮了";
+        }
+        else {
+          document.getElementById("btn").disabled = true;
+          document.getElementById("number").innerHTML = num + "个，请不要选择超过12个地点！";
+        }
+      }
+
+      function clearAll() //清除所有点
+      {
+        for (var i = 0; i < overlays.length; i++) {
+          map.removeOverlay(overlays[i]);
+        }
+        overlays.length = 0;
+        document.getElementById("location").innerHTML = null;
+        document.getElementById("number").innerHTML = "您还没有选定任何地点";
+      }
+
+      function clearPreviousOne()//清除上一个点
+      {
+        map.removeOverlay(overlays[overlays.length - 1]);
+        if (overlays.length > 0)
+          overlays.length--;
+        addLocation(181, 91, overlays.length);
+      }
+
+      function remove_overlay()//清除所有覆盖物
+      {
+        map.clearOverlays();
+        overlays.length = 0;
+      }
+
+      function number(a) //“提交”按钮功能
+      {
+        if (a < 3) {
+          var b = 3 - a;
+          alert("至少再选" + b + "个地点才能提交哦！");
+        }
+        else if (a <= 12)
+          alert("提交成功！ ");
+        else
+          alert("请不要选择超过12个地点！");
+
+        showLine();
+      }
+
+      //由所给坐标画线
+      function showLine() {
+        var long = overlays.length - 1;
+        while (long > 0) {
+          showAdjacentLine(long, long - 1);
+          long--;
+        }
+        showAdjacentLine(0, overlays.length - 1);
+      }
+      function showAdjacentLine(a, b) {
+        var Polyline = new BMap.Polyline([
+          //   new BMap.Point(116.399, 39.910),
+          //   new BMap.Point(116.405, 39.920),
+          new BMap.Point(overlays[a].point.lng, overlays[a].point.lat),
+          new BMap.Point(overlays[b].point.lng, overlays[b].point.lat),
+          // new BMap.Point(overlays[overlays.length - 2].point.lng, overlays[overlays.length - 2].point.lat),
+          // new BMap.Point(overlays[overlays.length - 1].point.lng, overlays[overlays.length - 1].point.lat)
+        ], { strokeColor: "blue", strokeWeight: 4, strokeOpacity: 0.5 });
+        map.addOverlay(Polyline);
+      }
+
+      // 左上角，添加比例尺
+      var top_left_control = new BMap.ScaleControl({
+        anchor: BMAP_ANCHOR_TOP_LEFT
+      });
+      //左上角，添加默认缩放平移控件
+      var top_left_navigation = new BMap.NavigationControl();
+
+      //添加控件和比例尺
+      function add_control() {
+        map.addControl(top_left_control);
+        map.addControl(top_left_navigation);
+      }
+      //移除控件和比例尺
+      function delete_control() {
+        map.removeControl(top_left_control);
+        map.removeControl(top_left_navigation);
+      }
+      //滚轮缩放地图
+      map.enableScrollWheelZoom();
+      //用户选点
+      var overlays = [];
+      var overlaycomplete = function (e) {
+        overlays.push(e.overlay);
+      };
+      //实例化鼠标绘制工具
+      var drawingManager = new BMapLib.DrawingManager(map, {
+        isOpen: false, //是否开启绘制模式
+        enableDrawingTool: true, //是否显示工具栏
+        drawingToolOptions: {
+          anchor: BMAP_ANCHOR_TOP_RIGHT, //位置
+          offset: new BMap.Size(-261, 5), //工具栏偏离值
+        },
+      });
+      //添加鼠标绘制工具监听事件，用于获取绘制结果
+      drawingManager.addEventListener('overlaycomplete', overlaycomplete);
+
+
+
+    </script>
+  </div>
+
+</body>
+
+</html>
