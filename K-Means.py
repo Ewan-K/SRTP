@@ -185,4 +185,4 @@ for k in range(NUM):
             plt.axis('off')
             plt.savefig(pathOut3 + str(k + 1) + "_" + str(i + 1) + ".png")
             plt.cla()
-            plt.close()  # 以防plt.figure()开启过多画布
+            plt.close()  # 以防plt画布重叠
